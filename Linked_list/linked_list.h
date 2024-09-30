@@ -19,8 +19,15 @@ public:
     linked_list() : head(NULL)
     {
     }
-    ~linked_list()
+    ~linked_list() // Deallocate list
     {
+        Node *temp;
+        while (head != NULL) // passing along the list to delete each node
+        {
+            temp = head;
+            head = head->next;
+            delete temp;
+        }
     }
     bool empty()
     {
@@ -114,11 +121,6 @@ public:
             cout << "List is already empty\n";
             return;
         }
-        if (!found(value)) // check for occurance of the element
-        {
-            cout << "Element Not Found\n";
-            return;
-        }
         // check if element is at first
         if (head->data == value)
         {
@@ -128,23 +130,24 @@ public:
             cout << "Element deleted Successfully\n";
             return;
         }
-        // checking for position of element
+        // searching for the element
         Node *temp = head;
         while (temp->next->data != value && temp->next != NULL)
         {
             temp = temp->next;
         }
-        // if found
-        if (temp->next != NULL)
+        // if element not found
+        if (temp->next == NULL)
         {
-            Node *del = temp->next;
-            temp->next = del->next;
-            delete del;
-            cout << "Element deleted Successfully\n";
-            return;
+            cout << "Element Not Found\n";
+            return
         }
-
-        // cout << "Deletion ";
+        // Delete this element
+        Node *del = temp->next;
+        temp->next = del->next;
+        delete del;
+        cout << "Element deleted Successfully\n";
+        return;
     }
     void Delete_fisrt()
     {
