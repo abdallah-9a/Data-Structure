@@ -1,5 +1,5 @@
 # Data-Structure
-Explanation of Data Structure & Algorithm
+#### Data Structures are specific ways of organizing and storing data in a computer so that it can be efficiently accessed and modified.
 
 Implementation of some data structure by C++ \
 1- Array\
