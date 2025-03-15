@@ -140,7 +140,7 @@ public:
         if (temp->next == NULL)
         {
             cout << "Element Not Found\n";
-            return
+            return;
         }
         // Delete this element
         Node *del = temp->next;
